@@ -99,6 +99,7 @@ fun TimerScreen(
         }
     }
 }
+@Composable
 fun playSound(context: Context){
     val mp = MediaPlayer.create(context, R.raw.audio)
 }
