@@ -35,7 +35,8 @@ class TimerViewModel : ViewModel() {
         private set
     var isPaused by mutableStateOf(false)
         private set
-
+    var isCloseToFinish by mutableStateOf(false)
+        private set
     fun selectTime(hour: Int, min: Int, sec: Int) {
         selectedHour = hour
         selectedMinute = min
@@ -74,6 +75,11 @@ class TimerViewModel : ViewModel() {
             timerJob?.cancel()
             isRunning = false
             isPaused = true
+        }
+    }
+    fun timeLeftCheck(){
+        if(remainingMillis < 5){
+            isCloseToFinish = true;
         }
     }
 

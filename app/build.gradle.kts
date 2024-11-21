@@ -37,6 +37,13 @@ android {
     buildFeatures {
         compose = true
     }
+    sourceSets {
+        getByName("main") {
+            assets {
+                srcDirs("src/main/assets", "src/res", "src/main/res/assets")
+            }
+        }
+    }
 }
 
 dependencies {
