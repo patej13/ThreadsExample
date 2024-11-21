@@ -40,7 +40,7 @@ fun TimerScreen(
     modifier: Modifier = Modifier,
     timerViewModel: TimerViewModel = viewModel()
 ) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
         Box(
             modifier = modifier
                 .padding(20.dp)
