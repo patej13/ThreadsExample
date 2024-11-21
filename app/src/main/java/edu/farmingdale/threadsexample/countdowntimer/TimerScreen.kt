@@ -68,6 +68,12 @@ fun TimerScreen(
             ) {
                 Text("Cancel")
             }
+            Button(
+                onClick = timerViewModel::pauseTimer,
+                modifier = modifier.padding(50.dp)
+            ) {
+                Text("Rest")
+            }
         } else {
             Button(
                 enabled = timerViewModel.selectedHour +
