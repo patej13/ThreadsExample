@@ -37,6 +37,8 @@ class TimerViewModel : ViewModel() {
         private set
     var isCloseToFinish by mutableStateOf(false)
         private set
+    var isCloseToFinishText by mutableStateOf(false)
+        private set
     fun selectTime(hour: Int, min: Int, sec: Int) {
         selectedHour = hour
         selectedMinute = min
@@ -79,6 +81,11 @@ class TimerViewModel : ViewModel() {
     }
     fun timeLeftCheck(){
         if(remainingMillis < 5){
+            isCloseToFinish = true;
+        }
+    }
+    fun timeLeftCheckText(){
+        if(remainingMillis < 10000){
             isCloseToFinish = true;
         }
     }

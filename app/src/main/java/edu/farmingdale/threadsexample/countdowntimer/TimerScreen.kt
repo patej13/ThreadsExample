@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
 import edu.farmingdale.threadsexample.R
+import edu.farmingdale.threadsexample.ui.theme.Red
 import java.text.DecimalFormat
 import java.util.Locale
 import kotlin.time.Duration
@@ -46,10 +47,22 @@ fun TimerScreen(
             if (timerViewModel.isRunning) {
 
             }
-            Text(
-                text = timerText(timerViewModel.remainingMillis),
-                fontSize = 60.sp,
-            )
+            if(timerViewModel.remainingMillis < 11000 && timerViewModel.remainingMillis>1){
+                Text(
+                    text = timerText(timerViewModel.remainingMillis),
+                    fontSize = 60.sp,
+                    color = Red
+                )
+            }
+            else{
+                Text(
+                    text = timerText(timerViewModel.remainingMillis),
+                    fontSize = 60.sp,
+                )
+            }
+            if(timerViewModel.remainingMillis < 1000){
+                playSound(context)
+            }
         }
         TimePicker(
             hour = timerViewModel.selectedHour,
@@ -86,7 +99,6 @@ fun TimerScreen(
         }
     }
 }
-
 fun playSound(context: Context){
     val mp = MediaPlayer.create(context, R.raw.audio)
 }
