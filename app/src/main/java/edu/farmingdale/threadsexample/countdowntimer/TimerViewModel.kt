@@ -33,6 +33,8 @@ class TimerViewModel : ViewModel() {
     // Timer's running status
     var isRunning by mutableStateOf(false)
         private set
+    var isPaused by mutableStateOf(false)
+        private set
 
     fun selectTime(hour: Int, min: Int, sec: Int) {
         selectedHour = hour
@@ -71,6 +73,7 @@ class TimerViewModel : ViewModel() {
         if (isRunning) {
             timerJob?.cancel()
             isRunning = false
+            isPaused = true
         }
     }
 
